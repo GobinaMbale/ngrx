@@ -1,0 +1,40 @@
+<h1>Users</h1>
+<div>
+  <a [routerLink]="['/user/create']" class='btn btn-success'>Add new</a>
+</div>
+
+<div *ngIf="loading$ | async">Chargement en cours...</div>
+<div *ngIf="error$ | async as error">{{ error }}</div>
+<table>
+  <thead>
+  <tr>
+    <th>usename</th>
+    <th>password</th>
+    <th>firstName</th>
+    <th>lastName</th>
+    <th>email</th>
+    <th>lastName</th>
+    <th>phone</th>
+    <th>edit</th>
+    <th>delete</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let user of (users$ | async)">
+    <td>{{user.username}}</td>
+    <td>{{user.password}}</td>
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.phone}}</td>
+    <td>
+      <a [routerLink]="['/user/', user.username]" class="btn btn-primary active" role="button"
+         routerLinkActive="active">Details</a>
+    </td>
+    <td>
+      <a [routerLink]="['/user/', user.username, 'edit']" class='btn btn-warning'>Edit</a>
+    </td>
+    <td>
+      <button type="button" class="btn btn-danger" (click)='delete(user.username)'>Delete</button>
+    </td>
+  </tr>
+</table>

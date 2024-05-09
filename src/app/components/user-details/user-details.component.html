@@ -1,0 +1,28 @@
+<div *ngIf="user" class="container">
+  <div>
+    <h2>{{user.username}}</h2>
+    <br/>
+    firstName:
+    {{user.firstName}}
+    <br/>
+    lastName:
+    {{user.lastName}}
+    <br/>
+    email:
+    {{user.email}}
+    <br/>
+    phone:
+    {{user.phone}}
+  </div>
+  <div>
+  </div>
+
+  <hr/>
+
+  <div class="btn-group btn-group-sm">
+    <a routerLink="/" type="button" class="btn btn-success">Back</a>
+    &nbsp;
+    <a class="btn btn-warning" [routerLink]="['/user', user.username,'edit']">Edit</a>
+    &nbsp;
+  </div>
+</div>

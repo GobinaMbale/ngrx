@@ -1,0 +1,42 @@
+<div class="container" style="width: 300px;">
+  <h3>{{user.id != null ? 'Update' : 'Create'}} User</h3>
+  <form [formGroup]="userForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" required formControlName="username" name="username"/>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="text" class="form-control" id="password" required formControlName="password" name="password"/>
+    </div>
+    <div class="form-group">
+      <label for="firstName">FirstName</label>
+      <input type="text" class="form-control" id="firstName" required formControlName="firstName" name="firstName"/>
+    </div>
+    <div class="form-group">
+      <label for="lastName">LastName</label>
+      <input type="text" class="form-control" id="lastName" required formControlName="lastName" name="lastName"/>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" required formControlName="email" name="email"/>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" class="form-control" id="phone" required formControlName="phone" name="phone"/>
+    </div>
+
+    <div class="row">
+      <button *ngIf="user?.id === null"  class="btn btn-success" (click)="create()" >
+        Create
+      </button>
+      &nbsp;
+      <button *ngIf="user?.id != null" class="btn btn-danger" (click)="update()">
+        Update
+      </button>
+    </div>
+  </form>
+</div>
+
+
+
